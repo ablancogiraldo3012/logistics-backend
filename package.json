@@ -7,7 +7,10 @@
     "generate:routes": "tsoa routes",
     "build": "npm run generate:spec && npm run generate:routes && tsc --project tsconfig.json",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --project tsconfig.dev.json --respawn --transpile-only src/server.ts",
+    "test": "NODE_ENV=test jest --config=jest.config.ts",
+    "test:watch": "npm run test -- --watchAll",
+    "test:ci": "NODE_ENV=test node -r dotenv/config ./node_modules/.bin/jest --ci"
   },
   "keywords": [],
   "author": "",
@@ -44,6 +47,9 @@
     "@types/ws": "^8.18.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
+    "envalid": "^8.0.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.14.1",
     "redis": "^4.7.0",
@@ -52,6 +58,7 @@
     "tsoa": "^6.6.0",
     "typeorm": "^0.3.22",
     "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
     "ws": "^8.18.1"
   }
 }

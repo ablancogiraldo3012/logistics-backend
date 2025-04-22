@@ -1,5 +1,7 @@
-import { DataSource } from 'typeorm';
-import { createConnection, getConnection } from 'typeorm';
+import { DataSource, createConnection, getConnection } from 'typeorm';
+import * as dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.test' });
 
 export const createTestDB = async () => {
   const connection = new DataSource({

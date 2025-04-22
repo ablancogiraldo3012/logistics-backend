@@ -132,3 +132,5 @@ dist
 
 # Node.JS
 package-lock.json
+src/**/*.js
+src/**/*.js.map
