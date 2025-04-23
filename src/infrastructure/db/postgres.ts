@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm';
+import { logger } from '../../utils/logger';
 
 export class PostgreSQLConnection {
   private static instance: DataSource;
@@ -17,7 +18,7 @@ export class PostgreSQLConnection {
       });
 
       PostgreSQLConnection.instance = await dataSource.initialize();
-      console.log('✅ PostgreSQL conectado');
+      logger.info('✅ PostgreSQL conectado');
     }
     return PostgreSQLConnection.instance;
   }

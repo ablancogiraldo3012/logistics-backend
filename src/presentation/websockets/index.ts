@@ -1,4 +1,5 @@
 import { WebSocketServer } from 'ws';
+import { logger } from '../../utils/logger';
 
 export const initWebSocket = () => {
   const wss = new WebSocketServer({ port: 8080 });
@@ -7,6 +8,6 @@ export const initWebSocket = () => {
     ws.send('Conexión WebSocket establecida');
   });
   
-  console.log('WebSocket en puerto 8080');
+  logger.info('WebSocket en puerto 8080');  
   return wss;
 };
